@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="bridge">
+<head>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/json-formatter.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular.min.js"></script>
+    <script src="lib/socket.io.js" type="text/javascript"></script>
+    <script src="lib/socket.js" type="text/javascript"></script>
+
+    <script src="bridge.js"></script>
+    <script src="lib/json-formatter.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2 class="text-center">Messages</h2>
+
+            <div ng-controller="BridgeController">
+                <div class="list-group">
+                    <a ng-repeat="message in messages" href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Message #{{$index + 1}}</h4>
+
+                        <p class="list-group-item-text">
+                            <json-formatter open="1" json="message">
+                            </json-formatter>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "amqp-socket-bridge",
+  "description": "A bridge between AMQP queues and socket channels",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "amqp": "~0.2.0",
+    "body-parser": "^1.8.3",
+    "config": "^0.4.36",
+    "cors": "~2.4.1",
+    "execSync": "^1.0.2",
+    "express": "3.x",
+    "socket.io": "~1.0.6",
+    "underscore": "^1.6.0",
+    "winston": "^0.7.3"
+  }
+}

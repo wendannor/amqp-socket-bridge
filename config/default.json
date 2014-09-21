@@ -1,0 +1,65 @@
+/***************************
+ * Created by wendannor
+ * Configuration file
+ ***************************/
+
+{
+    "RabbitMQ": {
+        "server": {
+            "host": "localhost",
+            "port": 5672,
+            "login": "guest",
+            "password": "guest",
+            "vhost": "/"
+        }
+    },
+
+    "bridges": [
+        {
+            "fromQueue": {
+                "options": {
+                    "passive": false,
+                    "durable": false
+                },
+                "name": "test.queue.1",
+                "bindings": [
+                    {
+                        "exchange": "amq.topic",
+                        "routing": "#"
+                    }
+                ]
+            },
+            "transform": {
+                "function": "addTimeStamp"
+            },
+            "toChannel": {
+                "channel": "queue1"
+            }
+        },
+        {
+            "fromQueue": {
+                "options": {
+                    "passive": false,
+                    "durable": false
+                },
+                "name": "test.queue.2"
+            },
+            "transform": {
+                "function": "default"
+            },
+            "toChannel": {
+                "channel": "queue2"
+            }
+        }
+    ],
+
+    "Express": {
+        "server": {
+            "port": 9006
+        }
+    },
+
+    "Logger": {
+        "level": "debug"
+    }
+} 
